@@ -4,11 +4,11 @@ Book.destroy_all
 Shopper.destroy_all
 Purchase.destroy_all
 
-100.times do
+5.times do
 Book.create(title:Faker::Book.title, category: Faker::Book.genre, author: Faker::Book.author, price: rand(1..20).to_f, language:Faker::Nation.language)
 end
 
-20.times do
+40.times do
 Shopper.create(name:Faker::Name.name, age: rand(10..100))
 end
 
