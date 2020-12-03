@@ -16,7 +16,7 @@ class Visit
     end
 
     def options
-        puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top sellers\n6. exit"
+        puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top sellers\n6. Exit"
         print "Please enter a number, or type 'exit'. "
         input = STDIN.gets.chomp
         while input != 'exit' && input != "6" do
@@ -26,8 +26,11 @@ class Visit
             when "2"
                 self.return
             when "3"
+                self.browse_cat
             when "4"
+                self.browse_author
             when "5"
+                self.see_top
             else
                 print "Invalid input, please try again."
                 input = STDIN.gets.chomp
@@ -55,7 +58,6 @@ class Visit
     def return
         print "What is the title of the book you'd like to return? "
         input = STDIN.gets.chomp
-        while input != 'return' do
             if old_purchase = @me.purchases.select{|pur| pur.book.title == input}[0]
                 old_purchase.update(return?:true)
                 puts "Thank you for returning #{input}"
@@ -64,7 +66,22 @@ class Visit
                 puts "Sorry, you cannot return this book, you didn't buy it at this store."
                 self.options
             end
+    end
+
+    def browse_cat
+        puts "Categories:"
+        puts Book.categories
+        print "Which category interests you? "
+        input = STDIN.gets.chomp
+        puts Book.all_by_category(input)
+        print "Type 'purchase' to buy a book, or press any key to go to the main menu. "
+        input = STDIN.gets.chomp
+        if input == 'purchase'
+            self.purchase
+        else
+            self.options
         end
     end
+
     
 end
