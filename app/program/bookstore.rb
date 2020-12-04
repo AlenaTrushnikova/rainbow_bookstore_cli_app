@@ -16,7 +16,7 @@ class Visit
     end
 
     def options
-        puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top sellers\n6. Exit"
+        puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top five sellers\n6. Exit"
         print "Please enter a number, or type 'exit'. "
         input = STDIN.gets.chomp
         while input != 'exit' && input != "6" do
@@ -28,9 +28,9 @@ class Visit
             when "3"
                 self.browse_cat
             when "4"
-                self.browse_author
+                self.browse_auth
             when "5"
-                self.see_top
+                self.top_5
             else
                 print "Invalid input, please try again."
                 input = STDIN.gets.chomp
@@ -73,6 +73,7 @@ class Visit
         puts Book.categories
         print "Which category interests you? "
         input = STDIN.gets.chomp
+        puts "Here are all books in the #{input} category:"
         puts Book.all_by_category(input)
         print "Type 'purchase' to buy a book, or press any key to go to the main menu. "
         input = STDIN.gets.chomp
@@ -83,5 +84,32 @@ class Visit
         end
     end
 
-    
+    def browse_auth
+        puts "Authors:"
+        puts Book.authors
+        print "Which author interests you? "
+        input = STDIN.gets.chomp
+        puts "Here are all books by #{input}:"
+        puts Book.all_by_author(input)
+        print "Type 'purchase' to buy a book, or press any key to go to the main menu. "
+        input = STDIN.gets.chomp
+        if input == 'purchase'
+            self.purchase
+        else
+            self.options
+        end
+    end
+
+    def top_5
+        puts "Here are our Top 5 best sellers:"
+        # Is this too long? Better to assign variables? Or better to include methods in Book class?
+        Book.all.sort_by{|book| book.num_purchases}.reverse[0..4].map{|book|book.title}.each{|title| puts title}
+        print "Type 'purchase' to buy a book, or press any key to go to the main menu. "
+        input = STDIN.gets.chomp
+        if input == 'purchase'
+            self.purchase
+        else
+            self.options
+        end
+    end
 end
