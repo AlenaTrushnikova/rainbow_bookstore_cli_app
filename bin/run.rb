@@ -5,7 +5,15 @@ ActiveRecord::Base.logger = nil #disables SQL query logging
 
 
 
-puts "Welcome to Bookstore!".green
+print "Welcome to ".green
+print "R".magenta
+print "A".red
+print "I".yellow
+print "N".green
+print "B".cyan
+print "O".blue
+print "W".magenta
+puts " Bookstore".green
 print "What is your name? "
 name = STDIN.gets.chomp
 print "What is your budget today? "
