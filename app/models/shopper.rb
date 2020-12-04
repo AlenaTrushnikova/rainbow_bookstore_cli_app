@@ -14,4 +14,12 @@ class Shopper < ActiveRecord::Base
         Purchase.find_by(book_id:book_id, shopper_id:self.id).update(return?:true)
     end
 
+    def budget_check(cost)
+        self.budget > cost
+    end
+
+    def budget_after_sale(cost)
+        self.budget - cost
+    end
+
 end

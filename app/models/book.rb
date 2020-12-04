@@ -20,7 +20,7 @@ class Book < ActiveRecord::Base
     end
 
     def num_purchases
-        Purchase.all.select{|pur| pur.book_id ==  self.id && pur.return? == false}.count
+        Purchase.all.select{|pur| pur.book_id == self.id && pur.return? == false}.count
     end
 
 end

@@ -17,18 +17,16 @@ ActiveRecord::Schema.define(version: 2020_12_02_212624) do
     t.string "category"
     t.string "author"
     t.float "price"
-    t.string "language"
   end
 
   create_table "purchases", force: :cascade do |t|
     t.integer "book_id"
     t.integer "shopper_id"
-    t.boolean "return?", default: false
   end
 
   create_table "shoppers", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
+    t.float "budget"
   end
 
 end

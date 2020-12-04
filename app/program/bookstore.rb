@@ -2,11 +2,11 @@ require_all 'app'
 require 'pry'
 
 class Visit
-    attr_reader :name, :age, :me
-    def initialize(name, age)
+    attr_reader :name, :budget, :me
+    def initialize(name, budget)
         @name = name
-        @age = age
-        @me = Shopper.create(name: @name, age: @age)
+        @budget = budget
+        @me = Shopper.create(name: @name, budget: @budget)
     end
 
     def go
@@ -17,9 +17,9 @@ class Visit
 
     def options
         puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top five sellers\n6. Exit"
-        print "Please enter a number, or type 'exit'. "
+        print "Please enter a number, or type 'Exit'. "
         input = STDIN.gets.chomp
-        while input != 'exit' && input != "6" do
+        while input.downcase != 'exit' && input != "6" do
             case input.downcase
             when "1"
                 self.purchase
@@ -32,10 +32,11 @@ class Visit
             when "5"
                 self.top_5
             else
-                print "Invalid input, please try again."
+                print "Invalid input, please try again. "
                 input = STDIN.gets.chomp
             end
         end
+        puts "Goodbye, happy reading #{@name}!"
     end
 
     def purchase
@@ -45,10 +46,15 @@ class Visit
             if Book.find_by(title: input) == nil
                 print "Sorry, we don't have this book in our store. Try another title or type 'return' to go to the main menu. "
                 input = STDIN.gets.chomp
-            else
+            elsif @me.budget_check(Book.find_by(title: input).price)
                 Shopper.find(@me.id).buy(input)
+                x = @me.budget_after_sale(Book.find_by(title: input).price)
+                @me.update(budget: x)
                 puts "Thank you for buying #{input}, now fork over $#{Book.find_by(title: input).price}."
-                print "What would you like to do next?"
+                print "What would you like to do next? "
+                self.options
+            else
+                puts "Sorry you don't have enough in your budget to buy this book."
                 self.options
             end
         end
@@ -58,8 +64,8 @@ class Visit
     def return
         print "What is the title of the book you'd like to return? "
         input = STDIN.gets.chomp
-            if old_purchase = @me.purchases.select{|pur| pur.book.title == input}[0]
-                old_purchase.update(return?:true)
+            if purchase = @me.purchases.select{|pur| pur.book.title == input}[0]
+                purchase.destroy
                 puts "Thank you for returning #{input}"
                 self.options
             else
