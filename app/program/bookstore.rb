@@ -10,18 +10,18 @@ class Visit
     end
 
     def go
-        puts "Glad you came in today, #{@name}.\n"
+        puts "Glad you came in today, #{@name}. You have a budget of $#{'%.2f' % @me.budget} for today's shopping.".green
         puts "What would you like to do? Here is a list of options:"
         puts "#{self.options}"
     end
 
     def options
         while true do
-            puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top five sellers\n6. Exit"
+            puts "Main Menu\n1. Purchase a book\n2. Return a book\n3. Browse by Category\n4. Browse by Author\n5. See top five sellers\n6. Check or update budget\n7. Exit"
             print "Please enter a number, or type 'Exit'. "
             input = STDIN.gets.chomp
 
-            if input.downcase == 'exit' || input == "6"
+            if input.downcase == 'exit' || input == "7"
                 break
             end
 
@@ -30,16 +30,20 @@ class Visit
                 self.purchase
             when "2"
                 self.return
+                #puts "return done"
             when "3"
                 self.browse_cat
             when "4"
                 self.browse_auth
             when "5"
                 self.top_5
+            when "6"
+                self.budget_status
             else
                 print "Invalid input, please try again. "
                 input = STDIN.gets.chomp
             end
+            #puts 'end of while'
         end
         puts "Goodbye, happy reading #{@name}!"
     end
@@ -55,7 +59,7 @@ class Visit
                 Shopper.find(@me.id).buy(input)
                 x = @me.budget_after_sale(Book.find_by(title: input).price)
                 @me.update(budget: x)
-                puts "Thank you for buying #{input}, now fork over $#{Book.find_by(title: input).price}."
+                puts "Thank you for buying #{input}, now fork over $#{'%.2f' % Book.find_by(title: input).price}. Your budget now is $#{'%.2f' % @me.budget}.".green
                 print "What would you like to do next? "
                 break
             else
@@ -68,12 +72,19 @@ class Visit
     def return
         print "What is the title of the book you'd like to return? "
         input = STDIN.gets.chomp
-            if purchase = @me.purchases.select{|pur| pur.book.title == input}[0]
-                purchase.destroy
-                puts "Thank you for returning #{input}"
+
+        while input != 'return' do
+            purchase = @me.purchases.select{|pur| pur.book.title == input}[0]
+            if  purchase == nil
+                print "Sorry, you cannot return this book, you didn't buy it at this store. Try another title or type 'return' to go to the main menu. "
+                input = STDIN.gets.chomp
             else
-                puts "Sorry, you cannot return this book, you didn't buy it at this store."
-            end        
+                @me.update(budget: (@me.budget + purchase.book.price))
+                puts "Thank you for returning #{input}. You've got your $#{'%.2f' % purchase.book.price} back. And your budget now is $#{'%.2f' % @me.budget}.".green
+                purchase.destroy
+                break
+            end
+        end       
     end
 
     def browse_cat
@@ -106,12 +117,27 @@ class Visit
 
     def top_5
         puts "Here are our Top 5 best sellers:"
-        # Is this too long? Better to assign variables? Or better to include methods in Book class?
         Book.all.sort_by{|book| book.num_purchases}.reverse[0..4].each{|book| puts book.title}
         print "Type 'purchase' to buy a book, or press any key to go to the main menu. "
         input = STDIN.gets.chomp
         if input == 'purchase'
             self.purchase
+        end
+    end
+
+    def budget_status
+        print "Type 'check' to see your current budget or 'add' to add money to your budget. "
+        input = STDIN.gets.chomp
+        if input == 'check'
+            puts "Your current budget is $#{'%.2f' % @me.budget}."
+        elsif input == 'add'
+            print "How much would you like to add? "
+            money = STDIN.gets.chomp.to_f
+            #check if user's input is valid
+            @me.update(budget: (@me.budget + money))
+            puts "Your budget now is $#{'%.2f' % @me.budget}.".green
+        else
+            puts "Sorry, that's an invaild entry."
         end
     end
 end
