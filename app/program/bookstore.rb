@@ -70,9 +70,9 @@ class Visit
                 print "Try another title or type 'return' to go to the main menu. "
                 input = STDIN.gets.chomp
             elsif @me.budget_check(Book.find_by(title: input).price)
-                Shopper.find(@me.id).buy(input)
-                x = @me.budget_after_sale(Book.find_by(title: input).price)
-                @me.update(budget: x)
+                @me.buy(input)
+                total = @me.budget_after_sale(Book.find_by(title: input).price)
+                @me.update(budget: total)
                 print "Thank you for buying #{input}, now fork over $#{'%.2f' % Book.find_by(title: input).price}. Your budget now is ".green
                 print "$#{'%.2f' % @me.budget}".red
                 puts ".".green
