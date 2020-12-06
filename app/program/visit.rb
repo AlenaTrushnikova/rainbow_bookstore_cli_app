@@ -51,8 +51,8 @@ class Visit
             when "6"
                 self.budget_status
             else
-                print "Invalid input, please try again. "
-                input = STDIN.gets.chomp
+                puts "Invalid input, please try again. "
+                # input = STDIN.gets.chomp
             end
             #puts 'end of while'
         end
@@ -97,7 +97,7 @@ class Visit
                 input = STDIN.gets.chomp
             else
                 @me.update(budget: (@me.budget + purchase.book.price))
-                print "Thank you for returning #{input}. You've got your $#{'%.2f' % purchase.book.price} back. And your budget now is " 
+                print "Thank you for returning #{input}. We've returned $#{'%.2f' % purchase.book.price} and your budget is now " 
                 print "$#{'%.2f' % @me.budget}".green
                 puts "."
                 purchase.destroy
@@ -108,7 +108,7 @@ class Visit
 
     def browse_cat
         puts "Categories:".magenta
-        puts Book.categories
+        Book.categories
         print "Which category interests you? ".magenta
         input = STDIN.gets.chomp.capitalize
         print "Here are all books in the "
@@ -123,9 +123,9 @@ class Visit
     end
 
     def browse_auth
-        puts "Authors:".cyan
-        puts Book.authors
-        print "Which author interests you? ".cyan
+        puts "Authors:".green
+        Book.authors
+        print "Which author interests you? ".green
         input = STDIN.gets.chomp.titleize
         print "Here are all books by "
         print "#{input}".green

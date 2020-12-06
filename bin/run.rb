@@ -1,5 +1,5 @@
 require_relative '../config/environment'
-require_relative '../lib/bookstore.rb'
+require_relative '../app/program/visit.rb'
 require 'colorize'
 ActiveRecord::Base.logger = nil #disables SQL query logging
 
