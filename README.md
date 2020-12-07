@@ -11,12 +11,12 @@ The Rainbow Bookstore CLI appliation simulates a visit to a bookstore. The shopp
 6. Run `ruby bin/run.rb`
 7. Follow the instructions on the screen
 
-### RAINBOW Bookstore Visit
+## RAINBOW Bookstore Visit
 After creating Shopper's Account you can access the Visit Menu.<br />
-![Shopper's visit menu] (INSERT URL)
+![Shopper's visit menu] (https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Main_menu.png)
 
 ### Relationships and User Stories
-![Relationships model] (INSERT URL)
+![Relationships model] (https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Relationships.jpg)
 1. As a user you can set a username and a budget
 2. As a user you can purchase/return a book
 3. As a user you can browse books by category or author
@@ -24,14 +24,14 @@ After creating Shopper's Account you can access the Visit Menu.<br />
 5. As a user you can check/update your budget
 6. As a user you can finish your visit
 
-## Contributing to Rainbow Bookstore CLI APP
-Please follow the [instructions](https://github.com/AlenaTrushnikova/ruby-project-guidelines/blob/master/CONTRIBUTING.md).
+### Contributing to Rainbow Bookstore CLI APP
+Please follow the [instructions](https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/CONTRIBUTING.md).
 
 
-## Contact
+### Contact
 Dana Jackson - Github: [@danajackson2](https://github.com/danajackson2)<br />
 Alena Trushnikova - Github: [@alenatrushnikova](https://github.com/alenatrushnikova)
 
-## License
+### License
 Copyright © 2020 [Dana Jackson](https://github.com/ruby-project-guidelines), [Alena Trushnikova](https://github.com/alenatrushnikova).<br />
 This project is [MIT](https://github.com/AlenaTrushnikova/ruby-project-guidelines/blob/master/LICENSE.md) license
