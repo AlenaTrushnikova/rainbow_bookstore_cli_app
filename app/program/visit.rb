@@ -153,7 +153,6 @@ class Visit
         elsif input == 'add'
             print "How much would you like to add? "
             money = STDIN.gets.chomp.to_f
-            #check if user's input is valid
             @me.update(budget: (@me.budget + money))
             puts "Your budget now is $#{'%.2f' % @me.budget}.".green
         else
