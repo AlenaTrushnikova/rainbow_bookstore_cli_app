@@ -13,10 +13,10 @@ The Rainbow Bookstore CLI appliation simulates a visit to a bookstore. The shopp
 
 ## RAINBOW Bookstore Visit
 After creating Shopper's Account you can access the Visit Menu.<br />
-![Shopper's visit menu] (https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Main_menu.png?raw=true)
+![Shopper's visit menu](https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Main_menu.png)
 
 ### Relationships and User Stories
-![Relationships model] (https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Relationships.jpg?raw=true)
+![Relationships model](https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Relationships.jpg)
 1. As a user you can set a username and a budget
 2. As a user you can purchase/return a book
 3. As a user you can browse books by category or author
