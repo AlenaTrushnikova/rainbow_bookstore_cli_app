@@ -2,6 +2,9 @@
 
 The Rainbow Bookstore CLI application simulates a visit to a bookstore. The shopper enters their name and budget when the program begins, and from there they have options to buy or return a book, see books by category or author, see the top 5 best selling books, check and update their budget, and exit.
 
+## :movie_camera: Video demo
+Check the [video demo](https://youtu.be/SqCurdt1G0A) of how the Bookstore works.
+
 ## :books: RAINBOW Bookstore Visit
 After creating Shopper's Account you can access the Visit Menu.<br />
 ![Shopper's visit menu](https://github.com/AlenaTrushnikova/rainbow_bookstore_cli_app/blob/master/readme_images/Main_menu.png)
