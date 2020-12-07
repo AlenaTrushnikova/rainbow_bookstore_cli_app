@@ -41,7 +41,6 @@ class Visit
                 self.purchase
             when "2"
                 self.return
-                #puts "return done"
             when "3"
                 self.browse_cat
             when "4"
@@ -52,9 +51,7 @@ class Visit
                 self.budget_status
             else
                 puts "Invalid input, please try again. "
-                # input = STDIN.gets.chomp
             end
-            #puts 'end of while'
         end
         print "Goodbye, happy reading "
         print "#{@name.capitalize}".yellow
@@ -108,7 +105,7 @@ class Visit
 
     def browse_cat
         puts "Categories:".magenta
-        Book.categories
+        puts Book.categories
         print "Which category interests you? ".magenta
         input = STDIN.gets.chomp.capitalize
         print "Here are all books in the "
@@ -124,7 +121,7 @@ class Visit
 
     def browse_auth
         puts "Authors:".green
-        Book.authors
+        puts Book.authors
         print "Which author interests you? ".green
         input = STDIN.gets.chomp.titleize
         print "Here are all books by "

@@ -8,11 +8,11 @@ class Book < ActiveRecord::Base
     end
 
     def self.categories
-        Book.all.map{|book| book.category}.uniq.each{|cat| puts cat}
+        Book.all.map{|book| book.category}.uniq
     end
 
     def self.authors
-        Book.all.map{|book| book.author}.uniq.each{|auth| puts auth}
+        Book.all.map{|book| book.author}.uniq
     end
 
     def self.all_by_author(author)

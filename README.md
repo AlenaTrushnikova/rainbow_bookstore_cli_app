@@ -1,3 +1,15 @@
+# Short Description
+The Rainbow Bookstore CLI appliation simulates a visit to a bookstore. The shopper enters their name and budget when the program begins, and from there they have options to buy or return a book, see books by category or author, see the top 5 best selling books, check and update their budget, and exit.
+
+# CRUD
+CREATE - The user creates a new instance of the Purchase class when they buy a book, and creates a new instance of the Shopper class when they enter their name and budget at the beginning of the program.
+READ - The user can see various manipulations of the data in the bookstore's database when they view books by category or author, and when they view the top 5 books for sale. They can also see their budget.
+UPDATE - A user's budget is updated when they purchase or return a book, and they can also manually add money to their budget.
+DESTROY - A Purchase instance is destroyed when a user returns a book.
+# Link to License
+
+
+
 # Module One Final Project Guidelines
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
