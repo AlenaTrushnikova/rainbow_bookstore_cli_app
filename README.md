@@ -2,32 +2,36 @@
 
 The Rainbow Bookstore CLI appliation simulates a visit to a bookstore. The shopper enters their name and budget when the program begins, and from there they have options to buy or return a book, see books by category or author, see the top 5 best selling books, check and update their budget, and exit.
 
-Install Instructions
+## Install Instructions
+1. Fork and clone this repository.
+2. `cd` into the cloned folder and open it in your text editor
+3. Open up your terminal and `run bundle install`
+4. Run `rake db:migrate`
+5. Run `rake db:seed`
+6. Run `ruby bin/run.rb`
+7. Follow the instructions on the screen
 
-How to Contribute
+### RAINBOW Bookstore Visit
+After creating Shopper's Account you can access the Visit Menu.<br />
+![Shopper's visit menu] (INSERT URL)
+
+### Relationships and User Stories
+![Relationships model] (INSERT URL)
+1. As a user you can set a username and a budget
+2. As a user you can purchase/return a book
+3. As a user you can browse books by category or author
+4. As a user you can see top 5 best selling books
+5. As a user you can check/update your budget
+6. As a user you can finish your visit
+
+## Contributing to Rainbow Bookstore CLI APP
+Please follow the [instructions](https://github.com/AlenaTrushnikova/ruby-project-guidelines/blob/master/CONTRIBUTING.md).
+
 
 ## Contact
-Dana Jackson - Github: [@danajackson2](https://github.com/danajackson2)
+Dana Jackson - Github: [@danajackson2](https://github.com/danajackson2)<br />
 Alena Trushnikova - Github: [@alenatrushnikova](https://github.com/alenatrushnikova)
 
 ## License
-Copyright © 2020 [Dana Jackson, Alena Trushnikova](https://github.com/ruby-project-guidelines).<br />
-This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) license
-
-## Instructions
-
-1. Fork and clone this repository.
-2. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-3. Make sure to create a good README.md with a short description, install instructions, a contributor's guide and a link to the license for your code.
-4. Make sure your project checks off each of the above requirements.
-5. Prepare a video demo (narration helps!) describing how a user would interact with your working project.
-    * The video should:
-      - Have an overview of your project. (2 minutes max)
-6. Prepare a presentation to follow your video. (3 minutes max)
-    * Your presentation should:
-      - Describe something you struggled to build, and show us how you ultimately implemented it in your code.
-      - Discuss 3 things you learned in the process of working on this project.
-      - Address what, if anything, you would change or add to what you have today.
-      - Present any code you would like to highlight.   
-7. *OPTIONAL, BUT RECOMMENDED*: Write a blog post about the project and process.
-
+Copyright © 2020 [Dana Jackson](https://github.com/ruby-project-guidelines), [Alena Trushnikova](https://github.com/alenatrushnikova).<br />
+This project is [MIT](https://github.com/AlenaTrushnikova/ruby-project-guidelines/blob/master/LICENSE.md) license
