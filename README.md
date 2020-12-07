@@ -1,12 +1,18 @@
-# Short Description
+# RAINBOW BOOKSTORE CLI APP
+
 The Rainbow Bookstore CLI appliation simulates a visit to a bookstore. The shopper enters their name and budget when the program begins, and from there they have options to buy or return a book, see books by category or author, see the top 5 best selling books, check and update their budget, and exit.
 
-# CRUD
-CREATE - The user creates a new instance of the Purchase class when they buy a book, and creates a new instance of the Shopper class when they enter their name and budget at the beginning of the program.
-READ - The user can see various manipulations of the data in the bookstore's database when they view books by category or author, and when they view the top 5 books for sale. They can also see their budget.
-UPDATE - A user's budget is updated when they purchase or return a book, and they can also manually add money to their budget.
-DESTROY - A Purchase instance is destroyed when a user returns a book.
+Install Instructions
 
+How to Contribute
+
+## Contact
+Dana Jackson - Github: [@danajackson2](https://github.com/danajackson2)
+Alena Trushnikova - Github: [@alenatrushnikova](https://github.com/alenatrushnikova)
+
+## License
+Copyright © 2020 [Dana Jackson, Alena Trushnikova](https://github.com/ruby-project-guidelines).<br />
+This project is [MIT](https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE) license
 
 ## Instructions
 
