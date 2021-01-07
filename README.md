@@ -36,5 +36,5 @@ Please follow the [instructions](https://github.com/AlenaTrushnikova/rainbow_boo
 :bust_in_silhouette: Alena Trushnikova - Github: [@alenatrushnikova](https://github.com/alenatrushnikova)
 
 ### :pencil: License
-Copyright © 2020 [Dana Jackson](https://github.com/danajackson2), [Alena Trushnikova](https://github.com/alenatrushnikova).<br />
+Copyright © 2020-2021 [Dana Jackson](https://github.com/danajackson2), [Alena Trushnikova](https://github.com/alenatrushnikova).<br />
 This project is [MIT](https://github.com/AlenaTrushnikova/ruby-project-guidelines/blob/master/LICENSE.md) license
