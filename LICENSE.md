@@ -1,4 +1,4 @@
-Copyright (c) 2020 Dana Jackson and Alena Trushnikova
+Copyright (c) 2020-2021 Dana Jackson and Alena Trushnikova
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
